@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ───────────── TOAST ───────────── -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <main class="dashboard">
+
+    <!-- ───────────── GREETING ───────────── -->
+    <div class="card header-card">
+      <div class="greeting-left">
+        <div class="greeting-time" id="greeting-time">00:00:00 AM</div>
+        <div class="greeting-date" id="greeting-date">Loading…</div>
+        <div class="greeting-text" id="greeting-text">Hello!</div>
+      </div>
+
+      <div class="greeting-right">
+        <button class="theme-toggle" id="theme-toggle">🌙 Dark Mode</button>
+
+        <form class="name-form" onsubmit="return false">
+          <input
+            type="text"
+            class="name-input"
+            id="name-input"
+            placeholder="Your name"
+            maxlength="30"
+            autocomplete="off"
+            aria-label="Enter your name"
+          />
+          <button type="button" class="btn-name-save" id="name-save">Save name</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ───────────── GRID ───────────── -->
+    <div class="grid">
+
+      <!-- FOCUS TIMER -->
+      <div class="card">
+        <div class="card-title">⏱ Focus Timer</div>
+
+        <div class="timer-display">
+          <div class="timer-circle" id="timer-circle">
+            <svg viewBox="0 0 160 160">
+              <circle class="track"    cx="80" cy="80" r="70"/>
+              <circle class="progress" cx="80" cy="80" r="70" id="timer-progress"/>
+            </svg>
+            <div class="timer-label" id="timer-label">25:00</div>
+          </div>
+          <div class="timer-status" id="timer-status">Ready</div>
+        </div>
+
+        <div class="timer-controls">
+          <button class="btn btn-primary" id="timer-start">▶ Start</button>
+          <button class="btn btn-secondary" id="timer-stop">⏹ Stop</button>
+          <button class="btn btn-ghost" id="timer-reset">↺ Reset</button>
+        </div>
+      </div>
+
+      <!-- TO-DO LIST -->
+      <div class="card">
+        <div class="card-title">✅ To-Do List</div>
+
+        <div class="todo-add-row">
+          <input
+            type="text"
+            class="todo-input"
+            id="todo-input"
+            placeholder="Add a new task…"
+            maxlength="120"
+            autocomplete="off"
+            aria-label="New task"
+          />
+          <button class="btn btn-primary" id="todo-add">Add</button>
+        </div>
+
+        <ul class="todo-list" id="todo-list" aria-label="Task list"></ul>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div class="card" style="grid-column: 1 / -1;">
+        <div class="card-title">🔗 Quick Links</div>
+
+        <div class="links-add-row">
+          <input
+            type="text"
+            class="link-input"
+            id="link-name"
+            placeholder="Site name (e.g. YouTube)"
+            maxlength="30"
+            autocomplete="off"
+            aria-label="Site name"
+          />
+          <input
+            type="url"
+            class="link-input"
+            id="link-url"
+            placeholder="URL (e.g. youtube.com)"
+            autocomplete="off"
+            aria-label="Site URL"
+          />
+          <button class="btn btn-primary" id="link-add">Add Link</button>
+        </div>
+
+        <div class="links-grid" id="links-grid" aria-label="Quick links"></div>
+      </div>
+
+    </div><!-- /grid -->
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
